@@ -32,3 +32,6 @@ test-results/
 *.sqlite3-shm
 *.sqlite3-journal
 !*.traineddata.gz
+
+# Runtime demo state (recreated by `python3 run.py --seed`)
+data/site_state.json

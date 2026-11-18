@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>删除依据台账 · 采集与撤回判定</title>
+<link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" aria-label="主导航">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">◎</div>
+      <div>
+        <div class="brand-title">删除依据台账</div>
+        <div class="brand-sub">Catalog Withdrawal Ledger</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="nav-item active" href="#/overview" data-nav="overview"><span class="nav-dot"></span>总览</a>
+      <a class="nav-item" href="#/items" data-nav="items"><span class="nav-dot"></span>资料与依据</a>
+      <a class="nav-item" href="#/proof" data-nav="proof"><span class="nav-dot"></span>证据工作台</a>
+      <a class="nav-item" href="#/tasks" data-nav="tasks"><span class="nav-dot"></span>补扫任务</a>
+      <a class="nav-item" href="#/delivery" data-nav="delivery"><span class="nav-dot"></span>下游投递</a>
+      <a class="nav-item" href="#/lab" data-nav="lab"><span class="nav-dot"></span>故障演练台</a>
+    </nav>
+    <div class="side-foot">
+      <div class="side-status" id="side-status">
+        <span class="dot dot-muted"></span><span>检查服务状态…</span>
+      </div>
+      <a class="side-link" id="link-site" href="__SITE_URL__/admin" target="_blank" rel="noopener">站点控制台 ↗</a>
+      <a class="side-link" id="link-down" href="__DOWNSTREAM_URL__/" target="_blank" rel="noopener">下游目录 ↗</a>
+      <p class="side-note">证据策略：跨批次 ≥2 · 跨地区 ≥2 · 完整扫描 ≥3<br>单次空结果永不清库。</p>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header class="topbar">
+      <div>
+        <h1 id="page-title">总览</h1>
+        <p class="page-sub" id="page-sub">删除结论的依据、补扫与下游状态</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="live" id="live-pill"><span class="dot dot-muted"></span><span id="live-text">未连接</span></div>
+        <button class="btn" id="btn-refresh" type="button">刷新</button>
+      </div>
+    </header>
+
+    <section id="view" class="view" aria-live="polite">
+      <div class="loading">正在载入台账…</div>
+    </section>
+    <footer class="foot">
+      <span>本地演示 · 无第三方依赖 · 数据仅存于本机 SQLite</span>
+      <span id="foot-now"></span>
+    </footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="资料详情"></aside>
+<script>window.__ADMIN_TOKEN__ = "__ADMIN_TOKEN__";</script>
+<script src="/assets/app.js"></script>
+</body>
+</html>
